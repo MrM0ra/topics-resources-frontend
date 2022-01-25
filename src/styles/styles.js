@@ -21,4 +21,12 @@ export const styles = {
         color: "white",
         backgroundColor:colors.secondary.light
     },
+    template: {
+        display: "grid",
+        placeItems:"center"
+    },
+    table: {
+        textAlign: "left",
+        borderSpacing: "15px"
+    },
 }
