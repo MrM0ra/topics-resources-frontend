@@ -14,12 +14,14 @@ export const styles = {
     blueButton: {
         borderRadius: "5px",
         color: "white",
-        backgroundColor:colors.secondary.main
+        backgroundColor:colors.secondary.main,
+        height: "130%"
     },
     greenButton: {
         borderRadius: "5px",
         color: "white",
-        backgroundColor:colors.secondary.light
+        backgroundColor:colors.secondary.light,
+        height: "130%"
     },
     template: {
         display: "grid",
@@ -27,6 +29,7 @@ export const styles = {
     },
     table: {
         textAlign: "left",
-        borderSpacing: "15px"
+        borderSpacing: "15px",
+        border: "1px"
     },
 }

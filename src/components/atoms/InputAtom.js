@@ -5,12 +5,12 @@ const InputAtom = (props) => {
     const [value, setValue] = useState("");
 
     const handleChange = (e) => {
-        setValue(e.target.value);
+        props.onChange(e.target.value);
     }
 
     return (
         <div>
-            <input placeholder={props.placeholder} value={value} onChange={(e)=>setValue(e.target.value)}></input>
+            <input placeholder={props.placeholder} value={value} type={props.type} onChange={props.onChange}></input>
         </div>
     );
 };

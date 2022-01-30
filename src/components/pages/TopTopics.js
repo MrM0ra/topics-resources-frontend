@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { styles } from '../../styles/styles';
 import TableCell from '../atoms/TableCell';
+
 const TopTopics = (props) => {
 
     const [topics, setTopics] = useState([]);
