@@ -2,26 +2,29 @@ import React, {useContext, useState} from 'react';
 import { UserContext } from '../../context/UserContext';
 import { styles } from '../../styles/styles';
 import LoginForm from './LoginForm';
+import SignupForm from './SignupForm';
 import TopTopics from './TopTopics';
 
 const Template = (props) => {
 
 	const {userName, userId, auth, changeUserEmail} = useContext(UserContext);
 
-	const [page, setPage] = useState("TopTopics");
+	const changePage = (page) => {
+		props.viewChangeHandler(page);
+	}
 
 	return (
 		<div style={styles.template}>
 			{auth ? 
-				page==="TopTopics" ? 
-					<TopTopics />
+				props.page==="TopTopics" ? 
+					<TopTopics changePage={changePage} />
 					:
 					undefined 
 				: 
-				page==="SignUp" ? 
-					undefined
+				props.page==="SignUp" ? 
+					<SignupForm changePage={changePage} changeEmail={changeUserEmail} />
 					: 
-					<LoginForm changeEmail={changeUserEmail}/>
+					<LoginForm changePage={changePage} changeEmail={changeUserEmail}/>
 			}
 		</div>
 	);

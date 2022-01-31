@@ -19,7 +19,7 @@ const AuthNav = () => {
     );
 }
 
-const AuthLessNav = () => {
+const AuthLessNav = (props) => {
     return (
         <div style={styles.navBar}>
             <div style={styles.navBar}>
@@ -28,10 +28,10 @@ const AuthLessNav = () => {
                 </div>
             </div>
             <div style={styles.navBar}>
-                <p style={styles.paragraph}>
+                <p onClick={() => props.changePage("LogIn")} style={styles.paragraph}>
                     Login
                 </p>
-                <p style={styles.paragraph}>
+                <p onClick={() => props.changePage("SignUp")} style={styles.paragraph}>
                     Sign up
                 </p>
             </div> 
@@ -50,9 +50,9 @@ const NavBar = (props) => {
   return (
       <div>
         {auth ?
-            <AuthNav />
+            <AuthNav changePage={props.viewChangeHandler}/>
                 :
-            <AuthLessNav />
+            <AuthLessNav changePage={props.viewChangeHandler} />
         }
       </div>          
   );

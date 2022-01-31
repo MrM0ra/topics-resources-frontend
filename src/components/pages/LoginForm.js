@@ -23,6 +23,7 @@ const LoginForm = (props) => {
 			if(result.error===null) {
 				changeUserId(result.userId);
 				changeAuth(true);
+                props.changePage("TopTopics")
 			} else{
 				setVisibleState("visible");
 			}
