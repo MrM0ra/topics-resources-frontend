@@ -29,7 +29,16 @@ export const styles = {
     },
     table: {
         textAlign: "left",
-        borderSpacing: "15px",
-        border: "1px"
+        borderCollapse: "collapse",
+        width: "100%"
+    },
+    td: {
+        border: "1px solid black",
+        textAlign: "left"
+    },
+    input: {
+        borderRadius: "5%",
+        width:"120%",
+        marginBottom: "5%",
     },
 }

@@ -4,12 +4,19 @@ import { colors } from '../styles/colors';
 import ButtonAtom from './atoms/ButtonAtom';
 import { UserContext } from '../context/UserContext';
 
-const AuthNav = () => {
+const AuthNav = (props) => {
+    
     return (
         <div style={styles.navBar}>
             <div style={styles.navBar}>
                 <div style={{marginLeft: "15px"}}>
                     <p>Avantica Training</p>
+                </div>
+                <div onClick={() => props.changePage("Topics")} style={{marginLeft: "15px"}}>
+                    <p>Topics</p>
+                </div>
+                <div onClick={() => props.changePage("Resources")} style={{marginLeft: "15px"}}>
+                    <p>Resources</p>
                 </div>
             </div>
             <div style={{marginRight: "15px"}}>

@@ -45,8 +45,8 @@ const LoginForm = (props) => {
 				<ButtonAtom text="Log in with Facebook" style={styles.blueButton} handleClick={ () => console.log("clicked FB")}></ButtonAtom>
 				<hr style={{width:"100%"}}></hr>
 				<p>Log in with your email address</p>
-				<input placeholder="Email" onChange={handleEmailChange} type="text"></input>
-				<input placeholder="Password" onChange={handlePwdChange} type="password"></input>
+				<input style={styles.input} placeholder="Email" onChange={handleEmailChange} type="text"></input>
+				<input style={styles.input} placeholder="Password" onChange={handlePwdChange} type="password"></input>
 				<p style={{visibility: visibleState}}>Usuario y/o contraseña invalidos</p>
 			</form>
 			<div style={{display: "flex", placeItems:"flex-start", paddingTop:"10%"}}>

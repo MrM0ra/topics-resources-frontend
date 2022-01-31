@@ -3,6 +3,8 @@ import { UserContext } from '../../context/UserContext';
 import { styles } from '../../styles/styles';
 import LoginForm from './LoginForm';
 import SignupForm from './SignupForm';
+import Topics from './Topics';
+import Resources from './Resources';
 import TopTopics from './TopTopics';
 
 const Template = (props) => {
@@ -19,7 +21,10 @@ const Template = (props) => {
 				props.page==="TopTopics" ? 
 					<TopTopics changePage={changePage} />
 					:
-					undefined 
+					props.page==="Topics" ?
+                        <Topics />
+                    :
+                        <Resources />
 				: 
 				props.page==="SignUp" ? 
 					<SignupForm changePage={changePage} changeEmail={changeUserEmail} />
