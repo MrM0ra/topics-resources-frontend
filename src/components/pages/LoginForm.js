@@ -6,7 +6,7 @@ import InputAtom from './../atoms/InputAtom';
 
 const LoginForm = (props) => {	
 
-	const {changeAuth, userEmail} = useContext(UserContext);
+	const {changeAuth, userEmail, changeUserId} = useContext(UserContext);
 
 	const [userPwd, setUserPwd] = useState("");
 	const [visibleState, setVisibleState] = useState('hidden');
@@ -20,7 +20,12 @@ const LoginForm = (props) => {
 		})
 		.then(res => res.json())
 		.then((result) => {
-			result.error===null ? changeAuth(true) : setVisibleState("visible");
+			if(result.error===null) {
+				changeUserId(result.userId);
+				changeAuth(true);
+			} else{
+				setVisibleState("visible");
+			}
 			console.log(result);
 		});
 	}

@@ -6,16 +6,25 @@ import TopTopics from './TopTopics';
 
 const Template = (props) => {
 
-  const {userName, userId, auth, changeUserEmail} = useContext(UserContext);
+	const {userName, userId, auth, changeUserEmail} = useContext(UserContext);
 
-  const [page, setPage] = useState("TopTopics");
+	const [page, setPage] = useState("TopTopics");
 
-  return (
-    <div style={styles.template}>
-      {auth ? <TopTopics /> : <LoginForm changeEmail={changeUserEmail}/>}
-      {/*<button onClick={(e)=>{setPage("caballo")}}></button>*/}
-    </div>
-  );
+	return (
+		<div style={styles.template}>
+			{auth ? 
+				page==="TopTopics" ? 
+					<TopTopics />
+					:
+					undefined 
+				: 
+				page==="SignUp" ? 
+					undefined
+					: 
+					<LoginForm changeEmail={changeUserEmail}/>
+			}
+		</div>
+	);
 };
 
 export default Template;
