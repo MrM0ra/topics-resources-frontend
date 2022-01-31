@@ -1,14 +1,19 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
+import { UserContext } from '../../context/UserContext';
+import { styles } from '../../styles/styles';
+import LoginForm from './LoginForm';
+import TopTopics from './TopTopics';
 
 const Template = (props) => {
 
-    const [page, setPage] = useState("");
+  const {userName, userId, auth, changeUserEmail} = useContext(UserContext);
 
-    
+  const [page, setPage] = useState("TopTopics");
 
   return (
-    <div>
-
+    <div style={styles.template}>
+      {auth ? <TopTopics /> : <LoginForm changeEmail={changeUserEmail}/>}
+      {/*<button onClick={(e)=>{setPage("caballo")}}></button>*/}
     </div>
   );
 };
