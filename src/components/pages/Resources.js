@@ -5,7 +5,7 @@ import ButtonAtom from '../atoms/ButtonAtom';
 
 const Resources = (props) => {
 	
-	const {userId} = useContext(UserContext);
+	const {userId, changeEditingResource} = useContext(UserContext);
 
 	const [resources, setResources] = useState([]);
 
@@ -21,10 +21,19 @@ const Resources = (props) => {
 		},
 	[userId]);
 
+    const editPass = (event) => {
+        changeEditingResource(+event.target.innerHTML);
+		props.changePage("EditResource");
+    }
+
 	const renderResources = () => {
 		return resources.map(resource => (
 			<tr key={resource.resourceId}>
-				<td style={styles.td}>{resource.resourceId}</td>
+                <td style={styles.td}>
+					<p onClick={editPass}>
+						<u>{resource.resourceId}</u>
+					</p>
+				</td>
 				<td style={styles.td}>{resource.resourceName}</td>
 			</tr>
 		));

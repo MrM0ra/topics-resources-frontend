@@ -9,6 +9,7 @@ import TopTopics from './TopTopics';
 import AddTopic from './AddTopic';
 import AddResource from './AddResource';
 import EditTopic from './EditTopic';
+import EditResource from './EditResource';
 
 const Template = (props) => {
 
@@ -37,6 +38,9 @@ const Template = (props) => {
 			}
             if(props.page==="EditTopic"){
 				return <EditTopic changePage={changePage}/>
+			}
+            if(props.page==="EditResource"){
+				return <EditResource changePage={changePage}/>
 			}
 		}else{
 			if(props.page==="SignUp"){
