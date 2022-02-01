@@ -6,7 +6,7 @@ import { styles } from '../../styles/styles';
 
 const SignupForm = (props) => {
 	
-	const {changeUserId, userName, changeUserName, userEmail} = useContext(UserContext);
+	const {changeUserId, userName, userEmail, changeAuth} = useContext(UserContext);
 
 	const [userPwd, setUserPwd] = useState('');
 
@@ -18,12 +18,27 @@ const SignupForm = (props) => {
 		setUserPwd(event.target.value);
 	}
 
-	const handleUserNameChange = (args) => {
-		changeUserName(args);
+	const handleUserNameChange = (event) => {
+        console.log(event.target.value);
+		props.changeUserName(event.target.value);
 	}
 
 	const handleSignupWeb = () => {
-		console.log("dummy");
+        let newUser = {name: userName, email: userEmail, password: userPwd}
+		console.log(newUser);
+        fetch('http://127.0.0.1:8005/api/user/register',{
+			method: "POST",
+			headers:{"Content-Type":"application/json"},
+			body: JSON.stringify(newUser)
+		})
+		.then(res => res.json())
+		.then((result) => {
+            if(result.error===null){
+                changeUserId(result.data._id);
+				changeAuth(true);
+				props.changePage("TopTopics")
+            }
+		});
 	}
 
 	return (

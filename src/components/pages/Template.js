@@ -11,7 +11,7 @@ import AddResource from './AddResource';
 
 const Template = (props) => {
 
-	const {userName, userId, auth, changeUserEmail} = useContext(UserContext);
+	const {userName, userId, auth, changeUserEmail, changeUserName} = useContext(UserContext);
 
 	const changePage = (page) => {
 		props.viewChangeHandler(page);
@@ -36,7 +36,7 @@ const Template = (props) => {
             }
 		}else{
 			if(props.page==="SignUp"){
-				return <SignupForm changePage={changePage} changeEmail={changeUserEmail} />
+				return <SignupForm changePage={changePage} changeUserName={changeUserName} changeEmail={changeUserEmail} />
 			}else{
 				return <LoginForm changePage={changePage} changeEmail={changeUserEmail}/>
 			}
