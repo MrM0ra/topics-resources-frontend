@@ -14,8 +14,7 @@ export const styles = {
     blueButton: {
         borderRadius: "5px",
         color: "white",
-        backgroundColor:colors.secondary.main,
-        height: "130%"
+        backgroundColor:colors.secondary.main
     },
     greenButton: {
         borderRadius: "5px",
@@ -25,7 +24,9 @@ export const styles = {
     },
     template: {
         display: "grid",
-        placeItems:"center"
+        placeItems:"unset",
+        width: "50%"
+
     },
     table: {
         textAlign: "left",
@@ -38,7 +39,7 @@ export const styles = {
     },
     input: {
         borderRadius: "5%",
-        width:"120%",
+        width:"50%",
         marginBottom: "5%",
     },
 }

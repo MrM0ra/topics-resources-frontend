@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../context/UserContext';
 import { styles } from '../../styles/styles';
+import ButtonAtom from '../atoms/ButtonAtom';
 
 const Topics = (props) => {
 
@@ -15,11 +16,10 @@ const Topics = (props) => {
 			.then(
 				(result) => {
 					setTopics(result);
-					console.log(result);
 				}
 			)
 		},
-	[]);
+	[userId]);
 
 	const renderTopics = () => {
 		return topics.map(topic => (
@@ -32,18 +32,30 @@ const Topics = (props) => {
 
 	return (
 		<div>
-			<h1>My topics</h1>
-			<table style={styles.table}>
-				<thead>
-					<tr>
-						<th style={styles.td}>Id</th>
-						<th style={styles.td}>Name</th>
-					</tr>
-				</thead>
-				<tbody>
-					{renderTopics()}
-				</tbody>
-			</table>
+			{topics.length>0 ? 
+			<div>
+				<h1>My topics</h1>
+				<table style={styles.table}>
+					<thead>
+						<tr>
+							<th style={styles.td}>Id</th>
+							<th style={styles.td}>Name</th>
+						</tr>
+					</thead>
+					<tbody>
+						{renderTopics()}
+					</tbody>
+				</table>
+				<input onClick={() => props.changePage("AddTopic")} style={styles.blueButton} type="button" value="Add New Topic"></input>
+			</div>
+				: 
+			<div>
+				<img src="https://cdn.iconscout.com/icon/free/png-256/data-not-found-1965034-1662569.png" alt=""></img>
+				<p>It seems like you haven't created any topics yet</p>
+				<input onClick={() => props.changePage("AddTopic")} style={styles.blueButton} type="button" value="Add New Topic"></input>
+			</div>
+		}
+		<p style={{textDecoration:"underline"}} onClick={() => props.changePage("TopTopics")}>Back to list</p>
 		</div>
 	);
 };

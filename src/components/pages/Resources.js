@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../context/UserContext';
 import { styles } from '../../styles/styles';
+import ButtonAtom from '../atoms/ButtonAtom';
 
 const Resources = (props) => {
 	
@@ -15,11 +16,10 @@ const Resources = (props) => {
 			.then(
 				(result) => {
 					setResources(result);
-					console.log(result);
 				}
 			)
 		},
-	[]);
+	[userId]);
 
 	const renderResources = () => {
 		return resources.map(resource => (
@@ -31,11 +31,11 @@ const Resources = (props) => {
 	}
 
 	return (
-        <div>
-            {resources.length>0 ? 
-            <div>
-                <h1>My resources</h1>
-			    <table style={styles.table}>
+		<div>
+			{resources.length>0 ? 
+			<div>
+				<h1>My resources</h1>
+				<table style={styles.table}>
 				<thead>
 					<tr>
 						<th style={styles.td}>Id</th>
@@ -43,16 +43,19 @@ const Resources = (props) => {
 					</tr>
 				</thead>
 				<tbody>
-                    {renderResources()}
+					{renderResources()}
 				</tbody>
-			    </table>
+				</table>
+                <input value="Add New Resource" style={styles.blueButton} onClick={() => props.changePage("AddResource")}></input>
             </div>
-                : 
-            <div>
-                <img src="https://cdn.iconscout.com/icon/free/png-256/data-not-found-1965034-1662569.png"></img>
-                <p>It seems like you haven't created any resources yet</p>
+				: 
+			<div>
+				<img src="https://cdn.iconscout.com/icon/free/png-256/data-not-found-1965034-1662569.png" alt=""></img>
+				<p>It seems like you haven't created any resources yet</p>
+                <input value="Add New Resource" style={styles.blueButton} onClick={() => props.changePage("AddResource")}></input>
             </div>
-        }			
+		}
+		<p style={{textDecoration:"underline"}} onClick={() => props.changePage("TopTopics")}>Back to list</p>
 		</div>
 	);
 };

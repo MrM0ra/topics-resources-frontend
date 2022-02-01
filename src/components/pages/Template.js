@@ -6,6 +6,8 @@ import SignupForm from './SignupForm';
 import Topics from './Topics';
 import Resources from './Resources';
 import TopTopics from './TopTopics';
+import AddTopic from './AddTopic';
+import AddResource from './AddResource';
 
 const Template = (props) => {
 
@@ -15,22 +17,35 @@ const Template = (props) => {
 		props.viewChangeHandler(page);
 	}
 
+	const rendering = () => {
+		if(auth) {
+			if(props.page==="TopTopics"){
+				return <TopTopics changePage={changePage} />; 
+			}
+			if(props.page==="Topics"){
+				return <Topics changePage={changePage} />
+			}
+			if(props.page==="Resources"){
+				return <Resources changePage={changePage} />
+			}
+			if(props.page==="AddTopic"){
+				return <AddTopic changePage={changePage}/>
+			}
+			if(props.page==="AddResource"){
+                return <AddResource changePage={changePage}/>
+            }
+		}else{
+			if(props.page==="SignUp"){
+				return <SignupForm changePage={changePage} changeEmail={changeUserEmail} />
+			}else{
+				return <LoginForm changePage={changePage} changeEmail={changeUserEmail}/>
+			}
+		}
+	}
+	
 	return (
 		<div style={styles.template}>
-			{auth ? 
-				props.page==="TopTopics" ? 
-					<TopTopics changePage={changePage} />
-					:
-					props.page==="Topics" ?
-                        <Topics />
-                    :
-                        <Resources />
-				: 
-				props.page==="SignUp" ? 
-					<SignupForm changePage={changePage} changeEmail={changeUserEmail} />
-					: 
-					<LoginForm changePage={changePage} changeEmail={changeUserEmail}/>
-			}
+			{rendering()}
 		</div>
 	);
 };

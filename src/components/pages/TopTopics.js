@@ -10,12 +10,21 @@ const TopTopics = (props) => {
 		.then(res => res.json())
 		.then((result) => {
 			setTopics(result);
-			console.log(result);
 		}
 		)},[]);
 
 	const renderTopics = () => {
-		return topics.map(topic => (
+        let flag=false;
+        topics.length>10 ? flag=true : flag=false;
+
+        let loopin = undefined;
+
+        flag ?
+            loopin = topics.slice(0, 10)
+            :
+            loopin = [...topics]
+        
+		return loopin.map(topic => (
 			<tr key={topic.topicId}>
 				<td style={styles.td}>{topic.topicDescription}</td>
 				<td style={styles.td}>{topic.resourcesCount}</td>

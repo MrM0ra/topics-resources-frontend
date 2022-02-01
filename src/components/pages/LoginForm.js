@@ -23,11 +23,10 @@ const LoginForm = (props) => {
 			if(result.error===null) {
 				changeUserId(result.userId);
 				changeAuth(true);
-                props.changePage("TopTopics")
+				props.changePage("TopTopics")
 			} else{
 				setVisibleState("visible");
 			}
-			console.log(result);
 		});
 	}
 
@@ -41,7 +40,7 @@ const LoginForm = (props) => {
 
 	return (
 		<div style={{paddingTop:"5%"}}>
-			<form style={{display: "grid"}}>
+			<form style={{display: "grid", placeItems: "center"}}>
 				<ButtonAtom text="Log in with Facebook" style={styles.blueButton} handleClick={ () => console.log("clicked FB")}></ButtonAtom>
 				<hr style={{width:"100%"}}></hr>
 				<p>Log in with your email address</p>
