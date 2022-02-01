@@ -2,7 +2,6 @@ import React, { useContext, useState } from 'react';
 import { UserContext } from '../../context/UserContext';
 import { styles } from '../../styles/styles';
 import ButtonAtom from '../atoms/ButtonAtom';
-import InputAtom from './../atoms/InputAtom';
 
 const LoginForm = (props) => {	
 

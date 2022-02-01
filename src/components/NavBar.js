@@ -1,7 +1,5 @@
 import React, { useContext } from 'react';
 import { styles } from '../styles/styles';
-import { colors } from '../styles/colors';
-import ButtonAtom from './atoms/ButtonAtom';
 import { UserContext } from '../context/UserContext';
 
 const AuthNav = (props) => {

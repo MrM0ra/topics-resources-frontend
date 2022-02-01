@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../context/UserContext';
 import { styles } from '../../styles/styles';
-import ButtonAtom from '../atoms/ButtonAtom';
 
 const Resources = (props) => {
 	

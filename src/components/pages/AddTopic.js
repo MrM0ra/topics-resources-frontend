@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
 import { UserContext } from '../../context/UserContext';
-import ButtonAtom from '../atoms/ButtonAtom';
 import { styles } from '../../styles/styles';
 
 const AddTopic = (props) => {

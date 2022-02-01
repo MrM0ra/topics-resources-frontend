@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import { UserContext } from '../../context/UserContext';
 import { styles } from '../../styles/styles';
 import LoginForm from './LoginForm';
@@ -13,7 +13,7 @@ import EditResource from './EditResource';
 
 const Template = (props) => {
 
-	const {userName, userId, auth, changeUserEmail, changeUserName} = useContext(UserContext);
+	const {auth, changeUserEmail, changeUserName} = useContext(UserContext);
 
 	const changePage = (page) => {
 		props.viewChangeHandler(page);

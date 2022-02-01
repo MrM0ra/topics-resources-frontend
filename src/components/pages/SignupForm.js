@@ -19,13 +19,11 @@ const SignupForm = (props) => {
 	}
 
 	const handleUserNameChange = (event) => {
-        console.log(event.target.value);
 		props.changeUserName(event.target.value);
 	}
 
 	const handleSignupWeb = () => {
         let newUser = {name: userName, email: userEmail, password: userPwd}
-		console.log(newUser);
         fetch('http://127.0.0.1:8005/api/user/register',{
 			method: "POST",
 			headers:{"Content-Type":"application/json"},
