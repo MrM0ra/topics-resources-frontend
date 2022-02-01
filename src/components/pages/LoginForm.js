@@ -12,7 +12,7 @@ const LoginForm = (props) => {
 	const [visibleState, setVisibleState] = useState('hidden');
 
 	const handleLoginWeb = () => {
-		let user = {"email":userEmail,"password":userPwd};
+		let user = {email: userEmail, password: userPwd};
 		const response = fetch("http://127.0.0.1:8005/api/user/login",{
 			method: "POST",
 			headers:{"Content-Type":"application/json"},

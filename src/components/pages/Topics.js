@@ -1,11 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../context/UserContext';
 import { styles } from '../../styles/styles';
-import ButtonAtom from '../atoms/ButtonAtom';
 
 const Topics = (props) => {
 
-	const {userId} = useContext(UserContext);
+	const {userId, changeEditingTopic} = useContext(UserContext);
 
 	const [topics, setTopics] = useState([]);
 
@@ -21,10 +20,19 @@ const Topics = (props) => {
 		},
 	[userId]);
 
+	const editPass = (event) => {
+		changeEditingTopic(+event.target.innerHTML);
+		props.changePage("EditTopic");
+	}
+
 	const renderTopics = () => {
 		return topics.map(topic => (
 			<tr key={topic.topicId}>
-				<td style={styles.td}>{topic.topicId}</td>
+				<td style={styles.td}>
+					<p onClick={editPass}>
+						<u>{topic.topicId}</u>
+					</p>
+				</td>
 				<td style={styles.td}>{topic.topicDescription}</td>
 			</tr>
 		));

@@ -12,12 +12,12 @@ function App() {
 	return (
 		<AuthProvider>
 			<div className="App">
-                <div>
-                    <NavBar viewChangeHandler={setPage} page={page} />
-                </div>
-                <div style={{display:"grid", placeItems:"center"}}>
-                    <Template viewChangeHandler={setPage} page={page}/>
-                </div>
+				<div>
+					<NavBar viewChangeHandler={setPage} page={page} />
+				</div>
+				<div style={{display:"grid", placeItems:"center"}}>
+					<Template viewChangeHandler={setPage} page={page}/>
+				</div>
 			</div>
 		</AuthProvider>
 	);

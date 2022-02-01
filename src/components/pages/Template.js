@@ -8,6 +8,7 @@ import Resources from './Resources';
 import TopTopics from './TopTopics';
 import AddTopic from './AddTopic';
 import AddResource from './AddResource';
+import EditTopic from './EditTopic';
 
 const Template = (props) => {
 
@@ -32,8 +33,11 @@ const Template = (props) => {
 				return <AddTopic changePage={changePage}/>
 			}
 			if(props.page==="AddResource"){
-                return <AddResource changePage={changePage}/>
-            }
+				return <AddResource changePage={changePage}/>
+			}
+            if(props.page==="EditTopic"){
+				return <EditTopic changePage={changePage}/>
+			}
 		}else{
 			if(props.page==="SignUp"){
 				return <SignupForm changePage={changePage} changeUserName={changeUserName} changeEmail={changeUserEmail} />
