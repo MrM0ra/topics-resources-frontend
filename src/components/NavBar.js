@@ -4,6 +4,13 @@ import { UserContext } from '../context/UserContext';
 
 const AuthNav = (props) => {
 	
+	const logout = () => {
+		props.setAuthentication(false);
+		props.setCredentials("");
+		props.setEmail("");
+		props.changePage("TopTopics");
+	}
+
 	return (
 		<div style={styles.navBar}>
 			<div style={styles.navBar}>
@@ -17,7 +24,7 @@ const AuthNav = (props) => {
 					<p>Resources</p>
 				</div>
 			</div>
-			<div style={{marginRight: "15px"}}>
+			<div onClick={logout} style={{marginRight: "15px"}}>
 				<p>Logout</p>
 			</div>
 		</div>
@@ -46,12 +53,12 @@ const AuthLessNav = (props) => {
 
 const NavBar = (props) => {
 
-	const {auth} = useContext(UserContext);
+	const {auth, changeAuth, changeUserId, changeUserEmail} = useContext(UserContext);
 
 	return (
 		<div>
 			{auth ?
-				<AuthNav changePage={props.viewChangeHandler}/>
+				<AuthNav setEmail={changeUserEmail} setCredentials={changeUserId} setAuthentication={changeAuth} changePage={props.viewChangeHandler}/>
 					:
 				<AuthLessNav changePage={props.viewChangeHandler} />
 			}
